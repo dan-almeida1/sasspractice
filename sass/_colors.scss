@@ -1,0 +1,30 @@
+// color palette
+@each $key, $val in $colors {
+  .bg-#{$key} {
+    background-color: $val;
+  }
+  .text-#{$key} {
+    color: $val;
+  }
+
+  //light variations
+  @for $i from 1 through 9 {
+    $lightness: $i * 10%;
+    .bg-#{$key}-light-#{$i} {
+      background-color: mix(white, $val, $lightness);
+    }
+    .text-#{$key}-light-#{$i} {
+      color: mix(white, $val, $lightness);
+    }
+  }
+  @for $i from 1 through 9 {
+  $darkness: $i * 10%;
+  .bg-#{$key}-dark-#{$i} {
+    background-color: mix(black, $val, $darkness);
+  }
+  .text-#{$key}-dark-#{$i} {
+    color: mix(black, $val, $darkness);
+  }
+}
+
+}
